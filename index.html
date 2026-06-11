@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouveau Health Care | Compassionate Home Health Care in Maryland</title>
+  <meta name="description" content="Nouveau Health Care is a state-licensed home health care provider in Maryland. We deliver quality, person-centered care for seniors including skilled nursing, companionship, respite care, and home health aide services.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a6b5e;
+      --primary-dark: #145548;
+      --primary-light: #e8f5f2;
+      --secondary: #c9a84c;
+      --secondary-light: #f5efe0;
+      --accent: #e74c3c;
+      --text-dark: #2c3e50;
+      --text-medium: #5a6c7d;
+      --text-light: #8a9aab;
+      --bg-warm: #faf8f5;
+      --bg-white: #ffffff;
+      --border: #e5e7eb;
+      --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
+      --shadow-medium: 0 8px 40px rgba(0,0,0,0.1);
+      --shadow-strong: 0 20px 60px rgba(0,0,0,0.15);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-soft); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo img { height: 48px; width: auto; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--primary);
+      line-height: 1.1;
+    }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: var(--text-medium);
+      transition: var(--transition); position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
+      background: var(--primary); transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--primary); color: white !important;
+      padding: 12px 28px; border-radius: 50px;
+      font-weight: 600; font-size: 0.9rem;
+      transition: var(--transition); border: none; cursor: pointer;
+    }
+    .nav-cta:hover {
+      background: var(--primary-dark); transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26,107,94,0.3);
+    }
+    .nav-cta::after { display: none !important; }
+    .ask-judy-btn {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: white !important;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+      margin-left: 16px;
+      animation: pulseJudy 2s infinite;
+    }
+    .ask-judy-btn:hover {
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+      animation: none;
+    }
+    .ask-judy-btn i { font-size: 1rem; }
+    @keyframes pulseJudy {
+      0%, 100% { box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); }
+      50% { box-shadow: 0 4px 25px rgba(231, 76, 60, 0.5); }
+    }
+    .mobile-toggle { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-warm) 50%, var(--secondary-light) 100%);
+      overflow: hidden; padding-top: 80px;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(26,107,94,0.08) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -30%; left: -10%; width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    .hero-content { animation: fadeInUp 1s ease-out; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; padding: 8px 20px; border-radius: 50px;
+      font-size: 0.8rem; font-weight: 600; color: var(--primary);
+      box-shadow: var(--shadow-soft); margin-bottom: 24px;
+    }
+    .hero-badge i { color: var(--secondary); }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--text-dark); margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { color: var(--primary); }
+    .hero-subtitle {
+      font-size: 1.15rem; color: var(--text-medium); margin-bottom: 32px;
+      max-width: 520px; line-height: 1.8;
+    }
+    .hero-cta-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--primary); color: white;
+      padding: 16px 36px; border-radius: 50px;
+      font-weight: 600; font-size: 1rem;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: var(--transition); border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(26,107,94,0.25);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark); transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(26,107,94,0.35);
+    }
+    .btn-secondary {
+      background: transparent; color: var(--primary);
+      padding: 16px 36px; border-radius: 50px;
+      font-weight: 600; font-size: 1rem;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: var(--transition); border: 2px solid var(--primary); cursor: pointer;
+    }
+    .btn-secondary:hover {
+      background: var(--primary); color: white; transform: translateY(-3px);
+    }
+    .hero-stats {
+      display: flex; gap: 40px; margin-top: 48px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat h3 { font-size: 2rem; color: var(--primary); font-family: 'Inter', sans-serif; font-weight: 700; }
+    .hero-stat p { font-size: 0.85rem; color: var(--text-light); margin-top: 4px; }
+    .hero-image-wrapper {
+      position: relative; animation: fadeInRight 1s ease-out 0.3s both;
+    }
+    .hero-image-main {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-strong); position: relative; z-index: 2;
+    }
+    .hero-image-main img { width: 100%; height: 520px; object-fit: cover; }
+    .hero-image-float {
+      position: absolute; bottom: -30px; left: -40px;
+      width: 220px; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-medium); z-index: 3;
+      border: 4px solid white;
+    }
+    .hero-image-float img { width: 100%; height: 160px; object-fit: cover; }
+    .hero-card {
+      position: absolute; top: 40px; right: -30px;
+      background: white; padding: 20px 24px; border-radius: var(--radius);
+      box-shadow: var(--shadow-medium); z-index: 3;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-card-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: var(--primary-light); display: flex; align-items: center; justify-content: center;
+      color: var(--primary); font-size: 1.2rem;
+    }
+    .hero-card-text h4 { font-size: 1.1rem; color: var(--text-dark); font-family: 'Inter', sans-serif; font-weight: 700; }
+    .hero-card-text p { font-size: 0.8rem; color: var(--text-light); }
+
+    /* ===== TRUST BAR ===== */
+    .trust-bar {
+      background: var(--bg-white); padding: 40px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 12px; }
+    .trust-item i { font-size: 1.5rem; color: var(--secondary); }
+    .trust-item span { font-size: 0.95rem; font-weight: 600; color: var(--text-medium); }
+
+    /* ===== SERVICES ===== */
+    .services {
+      padding: 100px 0; background: var(--bg-warm);
+    }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+    .section-label {
+      display: inline-block; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--primary);
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--text-dark); margin-bottom: 20px;
+    }
+    .section-header p { font-size: 1.1rem; color: var(--text-medium); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+    }
+    .service-card {
+      background: var(--bg-white); border-radius: var(--radius-lg);
+      padding: 40px 32px; transition: var(--transition);
+      border: 1px solid var(--border); position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--primary); transform: scaleX(0); transition: var(--transition);
+    }
+    .service-card:hover {
+      transform: translateY(-8px); box-shadow: var(--shadow-medium);
+      border-color: transparent;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 64px; height: 64px; border-radius: 16px;
+      background: var(--primary-light); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px; font-size: 1.6rem; color: var(--primary);
+      transition: var(--transition);
+    }
+    .service-card:hover .service-icon {
+      background: var(--primary); color: white; transform: rotateY(360deg);
+    }
+    .service-card h3 { font-size: 1.3rem; margin-bottom: 12px; color: var(--text-dark); }
+    .service-card p { font-size: 0.95rem; color: var(--text-medium); line-height: 1.7; }
+
+    /* ===== ABOUT / MISSION ===== */
+    .about {
+      padding: 100px 0; background: var(--bg-white);
+    }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-image { position: relative; }
+    .about-image-main {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-strong);
+    }
+    .about-image-main img { width: 100%; height: 500px; object-fit: cover; }
+    .about-image-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--primary); color: white;
+      padding: 28px 32px; border-radius: var(--radius);
+      text-align: center; box-shadow: var(--shadow-medium);
+    }
+    .about-image-badge h3 { font-size: 2.5rem; font-family: 'Inter', sans-serif; font-weight: 700; }
+    .about-image-badge p { font-size: 0.85rem; opacity: 0.9; margin-top: 4px; }
+    .about-content .section-label { margin-bottom: 16px; }
+    .about-content h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 24px; }
+    .about-content > p { font-size: 1.05rem; color: var(--text-medium); margin-bottom: 32px; line-height: 1.8; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .about-value { display: flex; gap: 16px; }
+    .about-value-icon {
+      width: 48px; height: 48px; min-width: 48px; border-radius: 12px;
+      background: var(--secondary-light); display: flex; align-items: center; justify-content: center;
+      color: var(--secondary); font-size: 1.1rem;
+    }
+    .about-value h4 { font-size: 1.1rem; margin-bottom: 6px; font-family: 'Inter', sans-serif; font-weight: 700; }
+    .about-value p { font-size: 0.9rem; color: var(--text-medium); line-height: 1.6; }
+
+    /* ===== WHY CHOOSE US ===== */
+    .why-us {
+      padding: 100px 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white; position: relative; overflow: hidden;
+    }
+    .why-us::before {
+      content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
+      background: rgba(255,255,255,0.03); border-radius: 50%; pointer-events: none;
+    }
+    .why-us::after {
+      content: ''; position: absolute; bottom: -80px; left: -80px; width: 300px; height: 300px;
+      background: rgba(255,255,255,0.03); border-radius: 50%; pointer-events: none;
+    }
+    .why-us .section-header h2, .why-us .section-header p { color: white; }
+    .why-us .section-label { color: var(--secondary); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; position: relative; z-index: 1;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.08); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg);
+      padding: 40px 28px; text-align: center; transition: var(--transition);
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,0.15); transform: translateY(-6px);
+    }
+    .why-card-icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px; font-size: 1.8rem; color: var(--secondary);
+      transition: var(--transition);
+    }
+    .why-card:hover .why-card-icon {
+      background: var(--secondary); color: var(--primary-dark); transform: scale(1.1);
+    }
+    .why-card h3 { font-size: 1.2rem; margin-bottom: 12px; color: white; font-family: 'Inter', sans-serif; font-weight: 700; }
+    .why-card p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.7; }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      padding: 100px 0; background: var(--bg-warm);
+    }
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+    }
+    .testimonial-card {
+      background: var(--bg-white); border-radius: var(--radius-lg);
+      padding: 40px 32px; box-shadow: var(--shadow-soft);
+      transition: var(--transition); position: relative;
+    }
+    .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-medium); }
+    .testimonial-quote {
+      font-size: 3rem; color: var(--primary); opacity: 0.2; line-height: 1;
+      margin-bottom: 16px;
+    }
+    .testimonial-card p {
+      font-size: 1rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 24px; font-style: italic;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 16px; }
+    .testimonial-author img {
+      width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+    }
+    .testimonial-author h4 { font-size: 1rem; font-family: 'Inter', sans-serif; font-weight: 700; color: var(--text-dark); }
+    .testimonial-author span { font-size: 0.85rem; color: var(--text-light); }
+    .stars { color: var(--secondary); font-size: 0.9rem; margin-top: 4px; }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      padding: 100px 0; background: var(--bg-white); position: relative;
+    }
+    .cta-inner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: var(--radius-lg); padding: 80px 60px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: center; position: relative; overflow: hidden;
+    }
+    .cta-inner::before {
+      content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px;
+      background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta-content h2 { font-size: clamp(2rem, 4vw, 2.8rem); color: white; margin-bottom: 20px; }
+    .cta-content p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 1.8; }
+    .cta-form { position: relative; z-index: 1; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.8); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px 18px; border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1);
+      color: white; font-size: 1rem; font-family: 'Inter', sans-serif;
+      transition: var(--transition); outline: none;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.5); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--secondary); background: rgba(255,255,255,0.15);
+    }
+    .form-group select { color: rgba(255,255,255,0.8); }
+    .form-group select option { color: var(--text-dark); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-submit {
+      width: 100%; padding: 16px; background: var(--secondary); color: var(--text-dark);
+      border: none; border-radius: 12px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; transition: var(--transition); margin-top: 8px;
+    }
+    .form-submit:hover {
+      background: #d4b55a; transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--text-dark); color: white; padding: 80px 0 0;
+    }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 60px; }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-brand .nav-logo-text { color: white; }
+    .footer-brand p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1rem; transition: var(--transition);
+    }
+    .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
+    .footer-col h4 { font-size: 1.1rem; font-family: 'Inter', sans-serif; font-weight: 700; margin-bottom: 24px; color: white; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { font-size: 0.9rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
+    .footer-col ul li a:hover { color: var(--secondary); padding-left: 4px; }
+    .footer-contact li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; }
+    .footer-contact li i { color: var(--secondary); font-size: 1rem; margin-top: 4px; }
+    .footer-contact li span { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding: 24px 0;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom p { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 0.85rem; color: rgba(255,255,255,0.4); transition: var(--transition); }
+    .footer-bottom-links a:hover { color: var(--secondary); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-image-wrapper { order: -1; }
+      .hero-image-main img { height: 400px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-image { order: -1; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .ask-judy-btn {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+        margin-left: auto;
+        margin-right: 12px;
+      }
+      .ask-judy-btn span { display: none; }
+      .mobile-toggle { display: block; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-stats { gap: 24px; }
+      .hero-image-float { display: none; }
+      .hero-card { right: 10px; top: 10px; padding: 14px 18px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .about-values { grid-template-columns: 1fr; }
+      .cta-inner { padding: 48px 28px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .trust-inner { gap: 24px; }
+      .about-image-badge { right: 10px; bottom: -10px; padding: 20px 24px; }
+      .about-image-badge h3 { font-size: 1.8rem; }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="https://kimi-web-img.moonshot.cn/img/chambermaster.blob.core.windows.net/a3adbc6a1b7b0ca1e1fb98a8787ce0a575735929.png" alt="Nouveau Health Care Logo">
+        <div class="nav-logo-text">
+          Nouveau Health Care
+          <span>Compassionate Home Care</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact" class="nav-cta">Get Started</a>
+      </div>
+      <a href="https://judyva.vercel.app/?tenant=nouveau-health-care" target="_blank" rel="noopener noreferrer" class="ask-judy-btn">
+        <i class="fas fa-robot"></i> Ask Judy
+      </a>
+      <div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-shield-check"></i>
+          State-Licensed Provider in All of Maryland
+        </div>
+        <h1>Compassionate <span>Home Health Care</span> for Your Loved Ones</h1>
+        <p class="hero-subtitle">
+          We deliver quality, person-centered care that advances the functionality and well-being of senior individuals. Dedicated support to overcome health challenges — safely and comfortably at home.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#contact" class="btn-primary">
+            <i class="fas fa-phone"></i> Request a Consultation
+          </a>
+          <a href="#services" class="btn-secondary">
+            <i class="fas fa-play-circle"></i> Explore Our Services
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <h3>100%</h3>
+            <p>Licensed in Maryland</p>
+          </div>
+          <div class="hero-stat">
+            <h3>5+</h3>
+            <p>Core Services</p>
+          </div>
+          <div class="hero-stat">
+            <h3>24/7</h3>
+            <p>Care Available</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-main">
+          <img src="https://kimi-web-img.moonshot.cn/img/www.nurseregistry.com/94719f598f6a90d86a4c87e00d0c17d71801090c.jpg" alt="Compassionate nurse caring for senior patient at home">
+        </div>
+        <div class="hero-image-float">
+          <img src="https://kimi-web-img.moonshot.cn/img/media.istockphoto.com/901a211604cdbd743727edc46b2a7b9cbbd4b9a8.jpg" alt="Warm caregiver moment with elderly patient">
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-icon"><i class="fas fa-heart-pulse"></i></div>
+          <div class="hero-card-text">
+            <h4>Person-Centered Care</h4>
+            <p>Respecting your values & culture</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container trust-inner">
+      <div class="trust-item">
+        <i class="fas fa-certificate"></i>
+        <span>State-Licensed Provider</span>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-users"></i>
+        <span>Person-Centered Approach</span>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-hand-holding-heart"></i>
+        <span>Compassionate Professionals</span>
+      </div>
+      <div class="trust-item">
+        <i class="fas fa-map-location-dot"></i>
+        <span>Serving All of Maryland</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Our Services</span>
+        <h2>Comprehensive Home Health Care Services</h2>
+        <p>Our team of professional home health care providers delivers a wide range of services tailored to meet the unique needs of each senior individual.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-user-nurse"></i></div>
+          <h3>Skilled Nursing</h3>
+          <p>Professional nursing care delivered by thoroughly assessed and qualified nurses. Medication management, wound care, health monitoring, and clinical oversight in the comfort of home.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-people-arrows"></i></div>
+          <h3>Staffing Services</h3>
+          <p>Reliable healthcare staffing solutions for facilities and families. We provide vetted, qualified professionals to ensure continuity of care and operational excellence.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Companionship</h3>
+          <p>Meaningful social engagement and emotional support for seniors. Our caregivers provide conversation, activities, and companionship to enrich daily life and combat isolation.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-clock-rotate-left"></i></div>
+          <h3>Respite Care</h3>
+          <p>Temporary relief for family caregivers. We step in to provide quality care so primary caregivers can rest, recharge, and attend to their own well-being without worry.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-hands-holding-child"></i></div>
+          <h3>Home Health Aide Services</h3>
+          <p>Assistance with daily living activities including bathing, dressing, meal preparation, and mobility support. Dignified care that promotes independence and comfort.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h3>Care Coordination</h3>
+          <p>Comprehensive care planning and coordination with physicians, families, and specialists. We ensure seamless communication and holistic care management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / MISSION -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-image reveal">
+        <div class="about-image-main">
+          <img src="https://kimi-web-img.moonshot.cn/img/www.elderlifefinancial.com/a5c44ee6ebebe300b0308cbe2c0ff62daa5be4ac.jpg" alt="Professional caregiver helping senior gentleman at home">
+        </div>
+        <div class="about-image-badge">
+          <h3>100%</h3>
+          <p>Licensed in Maryland</p>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="section-label">Our Mission</span>
+        <h2>Delivering Quality Care That Advances Well-Being</h2>
+        <p>The mission of Nouveau Health Care is to deliver quality care that advances the functionality and well-being of senior individuals. We assist seniors in receiving the highest quality of home health care with dedicated and compassionate support to overcome health challenges.</p>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="about-value-icon"><i class="fas fa-heart"></i></div>
+            <div>
+              <h4>Respect for Life</h4>
+              <p>We value the opinions, beliefs, and culture of every client we serve.</p>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon"><i class="fas fa-scale-balanced"></i></div>
+            <div>
+              <h4>Integrity & Accountability</h4>
+              <p>We take full accountability for the quality of care we provide.</p>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon"><i class="fas fa-people-group"></i></div>
+            <div>
+              <h4>Community Commitment</h4>
+              <p>We are on guard to aid community members back to their feet.</p>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon"><i class="fas fa-globe"></i></div>
+            <div>
+              <h4>Non-Discrimination</h4>
+              <p>We welcome all regardless of sex, color, race, or nationality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-us" id="why-us">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Why Choose Us</span>
+        <h2>What Sets Nouveau Health Care Apart</h2>
+        <p>We are committed to providing the highest standard of home health care with a person-centered approach that respects every individual.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-card-icon"><i class="fas fa-award"></i></div>
+          <h3>State Licensed</h3>
+          <p>Fully licensed home health care provider serving all areas in Maryland with full regulatory compliance.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-icon"><i class="fas fa-user-check"></i></div>
+          <h3>Vetted Professionals</h3>
+          <p>Our team undergoes thorough skills assessment and qualification examination before joining.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>Safety First</h3>
+          <p>Every care plan prioritizes the safety, comfort, and dignity of the seniors under our care.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="why-card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+          <h3>Compassionate Care</h3>
+          <p>We nurture seniors with genuine compassion, ensuring they feel valued and supported every day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Testimonials</span>
+        <h2>Families Trust Us With Their Loved Ones</h2>
+        <p>Hear from families who have experienced the Nouveau Health Care difference.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p>Nouveau Health Care has been a blessing for our family. The nurses are incredibly skilled and the caregivers treat my mother like family. We finally have peace of mind knowing she's in good hands.</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Sarah M.">
+            <div>
+              <h4>Sarah M.</h4>
+              <span>Daughter of Client, Rockville, MD</span>
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p>After my father's surgery, we needed skilled nursing at home. Nouveau Health Care provided exceptional care that exceeded our expectations. Their professionalism and compassion are unmatched.</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="James T.">
+            <div>
+              <h4>James T.</h4>
+              <span>Son of Client, Silver Spring, MD</span>
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p>The companionship service has transformed my aunt's life. She looks forward to her caregiver's visits every day. The person-centered approach truly respects her independence and preferences.</p>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Michelle K.">
+            <div>
+              <h4>Michelle K.</h4>
+              <span>Niece of Client, Bethesda, MD</span>
+              <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-content">
+          <span class="section-label" style="color: var(--secondary);">Get Started Today</span>
+          <h2>Ready to Provide the Best Care for Your Loved One?</h2>
+          <p>Contact us today for a free consultation. Our care coordinators will assess your needs and create a personalized care plan that ensures safety, comfort, and dignity for your loved one.</p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px;">
+            <a href="tel:+12405551234" class="btn-secondary" style="border-color: white; color: white;">
+              <i class="fas fa-phone"></i> (240) 555-1234
+            </a>
+            <a href="mailto:info@nouveauhc.com" class="btn-secondary" style="border-color: white; color: white;">
+              <i class="fas fa-envelope"></i> info@nouveauhc.com
+            </a>
+          </div>
+        </div>
+        <div class="cta-form">
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="John" required>
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Doe" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" placeholder="(240) 555-1234" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="john@email.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service Needed</label>
+              <select required>
+                <option value="">Select a service...</option>
+                <option value="skilled-nursing">Skilled Nursing</option>
+                <option value="staffing">Staffing Services</option>
+                <option value="companionship">Companionship</option>
+                <option value="respite">Respite Care</option>
+                <option value="home-health-aide">Home Health Aide</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="3" placeholder="Tell us about your care needs..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              <i class="fas fa-paper-plane"></i> Request Free Consultation
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <img src="https://kimi-web-img.moonshot.cn/img/chambermaster.blob.core.windows.net/a3adbc6a1b7b0ca1e1fb98a8787ce0a575735929.png" alt="Nouveau Health Care Logo">
+            <div class="nav-logo-text">
+              Nouveau Health Care
+              <span>Compassionate Home Care</span>
+            </div>
+          </a>
+          <p>Nouveau Health Care is a state-licensed home health care provider serving all areas in Maryland. Committed to quality, compassion, and person-centered care for senior individuals.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Skilled Nursing</a></li>
+            <li><a href="#services">Staffing Services</a></li>
+            <li><a href="#services">Companionship</a></li>
+            <li><a href="#services">Respite Care</a></li>
+            <li><a href="#services">Home Health Aide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#about">Our Mission</a></li>
+            <li><a href="#why-us">Why Choose Us</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-location-dot"></i>
+              <span>123 Health Care Way<br>Rockville, MD 20850</span>
+            </li>
+            <li>
+              <i class="fas fa-phone"></i>
+              <span>(240) 555-1234</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@nouveauhc.com</span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>Available 24/7 for emergencies</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> Nouveau Health Care. All rights reserved. State-Licensed Home Health Care Provider in Maryland.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Non-Discrimination Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Form submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.form-submit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent Successfully!';
+      btn.style.background = '#27ae60';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        this.reset();
+      }, 3000);
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '80px';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'white';
+        navLinks.style.padding = '24px';
+        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        navLinks.style.gap = '20px';
+        navLinks.style.zIndex = '1001';
+      }
+    });
+  </script>
+</body>
+</html>
