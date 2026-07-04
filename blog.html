@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Nouveau Health Care — Insights on Senior Home Care in Maryland</title>
+  <meta name="description" content="Read the latest insights, tips, and news from Nouveau Health Care about senior home care, caregiving, health trends, and compassionate support in Maryland.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1a6b5e;
+      --primary-dark: #145548;
+      --primary-light: #e8f5f2;
+      --secondary: #c9a84c;
+      --secondary-light: #f5efe0;
+      --accent: #e74c3c;
+      --text-dark: #2c3e50;
+      --text-medium: #5a6c7d;
+      --text-light: #8a9aab;
+      --bg-warm: #faf8f5;
+      --bg-white: #ffffff;
+      --border: #e5e7eb;
+      --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
+      --shadow-medium: 0 8px 40px rgba(0,0,0,0.1);
+      --shadow-strong: 0 20px 60px rgba(0,0,0,0.15);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-warm);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; font-weight: 600; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== NAVIGATION ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-soft); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo img { height: 48px; width: auto; }
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--primary);
+      line-height: 1.1;
+    }
+    .nav-logo-text span { display: block; font-size: 0.65rem; font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: var(--text-medium);
+      transition: var(--transition); position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
+      background: var(--primary); transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--primary); }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      background: var(--primary); color: white !important;
+      padding: 12px 28px; border-radius: 50px;
+      font-weight: 600; font-size: 0.9rem;
+      transition: var(--transition); border: none; cursor: pointer;
+    }
+    .nav-cta:hover {
+      background: var(--primary-dark); transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(26,107,94,0.3);
+    }
+    .nav-cta::after { display: none !important; }
+    .ask-judy-btn {
+      background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+      color: white !important;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+      margin-left: 16px;
+      animation: pulseJudy 2s infinite;
+    }
+    .ask-judy-btn:hover {
+      background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+      animation: none;
+    }
+    .ask-judy-btn i { font-size: 1rem; }
+    @keyframes pulseJudy {
+      0%, 100% { box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); }
+      50% { box-shadow: 0 4px 25px rgba(231, 76, 60, 0.5); }
+    }
+    .mobile-toggle { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; }
+
+    /* ===== BLOG HERO ===== */
+    .blog-hero {
+      position: relative;
+      padding: 160px 0 80px;
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-warm) 50%, var(--secondary-light) 100%);
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: ''; position: absolute; top: -50%; right: -20%; width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(26,107,94,0.08) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .blog-hero-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; }
+    .blog-hero-label {
+      display: inline-block; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--primary);
+      margin-bottom: 16px; background: white; padding: 8px 20px; border-radius: 50px;
+      box-shadow: var(--shadow-soft);
+    }
+    .blog-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--text-dark); margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .blog-hero p {
+      font-size: 1.15rem; color: var(--text-medium); line-height: 1.8;
+    }
+
+    /* ===== BLOG FILTERS ===== */
+    .blog-filters {
+      padding: 40px 0 20px;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 80px; z-index: 100;
+    }
+    .filters-inner {
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .filter-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+    .filter-tag {
+      padding: 8px 20px; border-radius: 50px; border: 1px solid var(--border);
+      background: var(--bg-white); color: var(--text-medium); font-size: 0.85rem;
+      font-weight: 500; cursor: pointer; transition: var(--transition);
+    }
+    .filter-tag:hover, .filter-tag.active {
+      background: var(--primary); color: white; border-color: var(--primary);
+    }
+    .search-box {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--bg-warm); border: 1px solid var(--border);
+      border-radius: 50px; padding: 10px 20px; min-width: 280px;
+    }
+    .search-box i { color: var(--text-light); font-size: 0.9rem; }
+    .search-box input {
+      border: none; background: transparent; outline: none;
+      font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text-dark);
+      width: 100%;
+    }
+    .search-box input::placeholder { color: var(--text-light); }
+
+    /* ===== BLOG GRID ===== */
+    .blog-section { padding: 60px 0 100px; }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .blog-card {
+      background: var(--bg-white); border-radius: var(--radius-lg);
+      overflow: hidden; border: 1px solid var(--border);
+      transition: var(--transition); display: flex; flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-medium);
+      border-color: transparent;
+    }
+    .blog-card-image {
+      position: relative; height: 220px; overflow: hidden;
+    }
+    .blog-card-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-card-image img { transform: scale(1.08); }
+    .blog-card-category {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--primary); color: white;
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .blog-card-content { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .blog-card-meta {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 14px;
+      font-size: 0.8rem; color: var(--text-light);
+    }
+    .blog-card-meta span { display: flex; align-items: center; gap: 6px; }
+    .blog-card-meta i { font-size: 0.75rem; }
+    .blog-card h3 {
+      font-size: 1.2rem; color: var(--text-dark); margin-bottom: 12px;
+      line-height: 1.4; transition: var(--transition);
+    }
+    .blog-card:hover h3 { color: var(--primary); }
+    .blog-card p {
+      font-size: 0.95rem; color: var(--text-medium); line-height: 1.7;
+      margin-bottom: 20px; flex: 1;
+    }
+    .blog-card-read {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--primary); font-weight: 600; font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .blog-card-read:hover { gap: 12px; }
+    .blog-card-read i { font-size: 0.8rem; transition: var(--transition); }
+
+    /* ===== FEATURED POST (first card spans 2 columns) ===== */
+    .blog-card.featured {
+      grid-column: span 2;
+      flex-direction: row;
+    }
+    .blog-card.featured .blog-card-image { width: 50%; height: auto; min-height: 320px; }
+    .blog-card.featured .blog-card-content { width: 50%; justify-content: center; }
+    .blog-card.featured h3 { font-size: 1.6rem; }
+    .blog-card.featured p { font-size: 1rem; }
+
+    /* ===== NEWSLETTER ===== */
+    .newsletter {
+      padding: 80px 0; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      position: relative; overflow: hidden;
+    }
+    .newsletter::before {
+      content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
+      background: rgba(255,255,255,0.03); border-radius: 50%; pointer-events: none;
+    }
+    .newsletter-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .newsletter-content h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); color: white; margin-bottom: 16px; }
+    .newsletter-content p { font-size: 1.05rem; color: rgba(255,255,255,0.8); line-height: 1.8; }
+    .newsletter-form { display: flex; gap: 12px; }
+    .newsletter-form input {
+      flex: 1; padding: 16px 24px; border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1);
+      color: white; font-size: 1rem; font-family: 'Inter', sans-serif; outline: none;
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.5); }
+    .newsletter-form input:focus { border-color: var(--secondary); background: rgba(255,255,255,0.15); }
+    .newsletter-form button {
+      padding: 16px 32px; border-radius: 50px; background: var(--secondary); color: var(--text-dark);
+      border: none; font-weight: 700; font-size: 1rem; cursor: pointer;
+      transition: var(--transition); white-space: nowrap;
+    }
+    .newsletter-form button:hover { background: #d4b55a; transform: translateY(-2px); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--text-dark); color: white; padding: 80px 0 0;
+    }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 60px; }
+    .footer-brand .nav-logo { margin-bottom: 20px; }
+    .footer-brand .nav-logo-text { color: white; }
+    .footer-brand p { font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1rem; transition: var(--transition);
+    }
+    .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
+    .footer-col h4 { font-size: 1.1rem; font-family: 'Inter', sans-serif; font-weight: 700; margin-bottom: 24px; color: white; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { font-size: 0.9rem; color: rgba(255,255,255,0.6); transition: var(--transition); }
+    .footer-col ul li a:hover { color: var(--secondary); padding-left: 4px; }
+    .footer-contact li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 16px; }
+    .footer-contact li i { color: var(--secondary); font-size: 1rem; margin-top: 4px; }
+    .footer-contact li span { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1); padding: 24px 0;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom p { font-size: 0.85rem; color: rgba(255,255,255,0.4); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a { font-size: 0.85rem; color: rgba(255,255,255,0.4); transition: var(--transition); }
+    .footer-bottom-links a:hover { color: var(--secondary); }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 1024px) {
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .blog-card.featured { grid-column: span 2; }
+      .blog-card.featured .blog-card-image { width: 45%; }
+      .blog-card.featured .blog-card-content { width: 55%; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .ask-judy-btn {
+        padding: 10px 18px; font-size: 0.8rem;
+        margin-left: auto; margin-right: 12px;
+      }
+      .ask-judy-btn span { display: none; }
+      .mobile-toggle { display: block; }
+      .blog-hero { padding: 120px 0 60px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card.featured {
+        grid-column: span 1; flex-direction: column;
+      }
+      .blog-card.featured .blog-card-image { width: 100%; height: 220px; min-height: auto; }
+      .blog-card.featured .blog-card-content { width: 100%; }
+      .blog-card.featured h3 { font-size: 1.2rem; }
+      .filters-inner { flex-direction: column; align-items: stretch; }
+      .search-box { width: 100%; min-width: auto; }
+      .newsletter-form { flex-direction: column; }
+      .newsletter-form button { width: 100%; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="https://kimi-web-img.moonshot.cn/img/chambermaster.blob.core.windows.net/a3adbc6a1b7b0ca1e1fb98a8787ce0a575735929.png" alt="Nouveau Health Care Logo">
+        <div class="nav-logo-text">
+          Nouveau Health Care
+          <span>Compassionate Home Care</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#testimonials">Testimonials</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="index.html#contact" class="nav-cta">Get Started</a>
+      </div>
+      <a href="https://judyva.vercel.app/?tenant=nouveau-health-care" target="_blank" rel="noopener noreferrer" class="ask-judy-btn">
+        <i class="fas fa-robot"></i> Ask Judy
+      </a>
+      <div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+    </div>
+  </nav>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="container blog-hero-inner reveal">
+      <span class="blog-hero-label"><i class="fas fa-pen-nib" style="margin-right: 8px;"></i>Our Blog</span>
+      <h1>Insights on Compassionate Senior Care</h1>
+      <p>Weekly articles, tips, and expert advice on home health care, aging well, and supporting your loved ones in Maryland and beyond.</p>
+    </div>
+  </section>
+
+  <!-- BLOG FILTERS -->
+  <section class="blog-filters">
+    <div class="container filters-inner">
+      <div class="filter-tags">
+        <button class="filter-tag active" data-filter="all">All Posts</button>
+        <button class="filter-tag" data-filter="caregiving">Caregiving</button>
+        <button class="filter-tag" data-filter="health">Health Tips</button>
+        <button class="filter-tag" data-filter="senior-living">Senior Living</button>
+        <button class="filter-tag" data-filter="industry">Industry News</button>
+      </div>
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search articles..." id="blogSearch">
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG GRID -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid" id="blogGrid">
+
+        <!-- FEATURED POST -->
+        <article class="blog-card featured" data-category="caregiving">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800&h=500&fit=crop" alt="Caregiver helping senior at home">
+            <span class="blog-card-category">Caregiving</span>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span><i class="fas fa-calendar"></i> July 4, 2026</span>
+              <span><i class="fas fa-clock"></i> 6 min read</span>
+            </div>
+            <h3>5 Signs Your Aging Parent May Need Home Health Care</h3>
+            <p>Recognizing when a loved one needs professional support can be difficult. Learn the key warning signs that indicate it may be time to consider home health care services, from changes in mobility to medication management challenges.</p>
+            <a href="blog/home-health-care-services-maryland.html" class="blog-card-read">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- POST 2 -->
+        <article class="blog-card" data-category="health">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" alt="Senior exercising at home">
+            <span class="blog-card-category">Health Tips</span>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span><i class="fas fa-calendar"></i> July 4, 2026</span>
+              <span><i class="fas fa-clock"></i> 4 min read</span>
+            </div>
+            <h3>Simple Exercises Seniors Can Do at Home</h3>
+            <p>Staying active is essential for healthy aging. Discover gentle, safe exercises that improve balance, strength, and flexibility — all from the comfort of home.</p>
+            <a href="blog/home-health-care-services-maryland.html" class="blog-card-read">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- POST 3 -->
+        <article class="blog-card" data-category="senior-living">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=600&h=400&fit=crop" alt="Senior enjoying companionship">
+            <span class="blog-card-category">Senior Living</span>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span><i class="fas fa-calendar"></i> July 4, 2026</span>
+              <span><i class="fas fa-clock"></i> 5 min read</span>
+            </div>
+            <h3>The Importance of Companionship for Seniors</h3>
+            <p>Social isolation can seriously impact senior health. Explore how companionship services improve mental well-being, cognitive function, and overall quality of life.</p>
+            <a href="blog/dementia-care-at-home-maryland.html" class="blog-card-read">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- POST 4 -->
+        <article class="blog-card" data-category="industry">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=400&fit=crop" alt="Healthcare professional">
+            <span class="blog-card-category">Industry News</span>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span><i class="fas fa-calendar"></i> July 4, 2026</span>
+              <span><i class="fas fa-clock"></i> 3 min read</span>
+            </div>
+            <h3>What to Look for in a Maryland Home Health Care Provider</h3>
+            <p>Choosing the right home health care agency is a critical decision. Here is what families should consider when evaluating providers in Maryland.</p>
+            <a href="blog/how-to-choose-home-care-provider-maryland.html" class="blog-card-read">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- POST 5 -->
+        <article class="blog-card" data-category="caregiving">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1559839734-0b0d8b71e4f5?w=600&h=400&fit=crop" alt="Family caregiver support">
+            <span class="blog-card-category">Caregiving</span>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span><i class="fas fa-calendar"></i> July 4, 2026</span>
+              <span><i class="fas fa-clock"></i> 4 min read</span>
+            </div>
+            <h3>Respite Care: Giving Family Caregivers a Much-Needed Break</h3>
+            <p>Caring for a loved one is rewarding but exhausting. Learn how respite care services provide temporary relief so family caregivers can recharge and avoid burnout.</p>
+            <a href="blog/respite-care-for-family-caregivers-maryland.html" class="blog-card-read">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- POST 6 -->
+        <article class="blog-card" data-category="health">
+          <div class="blog-card-image">
+            <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&h=400&fit=crop" alt="Healthy senior meal">
+            <span class="blog-card-category">Health Tips</span>
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-card-meta">
+              <span><i class="fas fa-calendar"></i> July 4, 2026</span>
+              <span><i class="fas fa-clock"></i> 5 min read</span>
+            </div>
+            <h3>Nutrition Tips for Seniors: Eating Well at Home</h3>
+            <p>Proper nutrition is vital for senior health. Discover practical tips for maintaining a balanced diet, managing dietary restrictions, and making mealtime enjoyable.</p>
+            <a href="blog/home-health-care-services-maryland.html" class="blog-card-read">Read Article <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="container newsletter-inner reveal">
+      <div class="newsletter-content">
+        <h2>Stay Informed on Senior Care</h2>
+        <p>Get weekly insights, caregiving tips, and health advice delivered straight to your inbox. No spam — just valuable content for families caring for seniors.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="https://kimi-web-img.moonshot.cn/img/chambermaster.blob.core.windows.net/a3adbc6a1b7b0ca1e1fb98a8787ce0a575735929.png" alt="Nouveau Health Care Logo">
+            <div class="nav-logo-text">
+              Nouveau Health Care
+              <span>Compassionate Home Care</span>
+            </div>
+          </a>
+          <p>Nouveau Health Care is a state-licensed home health care provider serving all areas in Maryland. Committed to quality, compassion, and person-centered care for senior individuals.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#services">Skilled Nursing</a></li>
+            <li><a href="index.html#services">Staffing Services</a></li>
+            <li><a href="index.html#services">Companionship</a></li>
+            <li><a href="index.html#services">Respite Care</a></li>
+            <li><a href="index.html#services">Home Health Aide</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#why-us">Why Choose Us</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-location-dot"></i>
+              <span>11140 Rockville Pike, Suite 380 D<br>Rockville, MD 20852</span>
+            </li>
+            <li>
+              <i class="fas fa-mobile-screen"></i>
+              <span>Mobile: (240) 449-6614</span>
+            </li>
+            <li>
+              <i class="fas fa-building"></i>
+              <span>Office: (240) 221-7151</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>info@nouveauhc.com</span>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <span>Available 24/7 for emergencies</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p> Nouveau Health Care. All rights reserved. State-Licensed Home Health Care Provider in Maryland.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Non-Discrimination Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    });
+
+    // Scroll reveal animation
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // Blog card reveal with stagger
+    const blogCards = document.querySelectorAll('.blog-card');
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, index * 100);
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    blogCards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      cardObserver.observe(card);
+    });
+
+    // Filter functionality
+    const filterTags = document.querySelectorAll('.filter-tag');
+    const blogGrid = document.getElementById('blogGrid');
+    const allCards = document.querySelectorAll('.blog-card');
+
+    filterTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        filterTags.forEach(t => t.classList.remove('active'));
+        tag.classList.add('active');
+        const filter = tag.dataset.filter;
+
+        allCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => { card.style.display = 'none'; }, 300);
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('blogSearch');
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      allCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const excerpt = card.querySelector('p').textContent.toLowerCase();
+        const category = card.querySelector('.blog-card-category').textContent.toLowerCase();
+        if (title.includes(query) || excerpt.includes(query) || category.includes(query)) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          setTimeout(() => { card.style.display = 'none'; }, 300);
+        }
+      });
+    });
+
+    // Newsletter form
+    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button');
+      const originalText = btn.textContent;
+      btn.textContent = 'Subscribed!';
+      btn.style.background = '#27ae60';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        this.reset();
+      }, 3000);
+    });
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+      if (!isOpen) {
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '80px';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'white';
+        navLinks.style.padding = '24px';
+        navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        navLinks.style.gap = '20px';
+        navLinks.style.zIndex = '1001';
+      }
+    });
+  </script>
+</body>
+</html>
